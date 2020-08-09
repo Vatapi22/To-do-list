@@ -1,8 +1,8 @@
 
-showTask();
 var addTask = document.getElementById("add");
-
 var task = document.getElementById("newTask");
+var htmlHeader = document.getElementById("table").innerHTML;
+showTask();
 addTask.addEventListener("click", function(){
     var taskValue = task.value; 
     var webtask = localStorage.getItem("localTask");
@@ -15,7 +15,8 @@ addTask.addEventListener("click", function(){
 })
 function showTask(){
     var table = document.getElementById("table");
-    var html= table.innerHTML;;
+    var html= htmlHeader;
+    console.log(html + "  " + htmlHeader);
     var webtask = localStorage.getItem("localTask");
     if (webtask == null)
         taskObj=[];
@@ -57,16 +58,12 @@ save.addEventListener("click", function(){
     localStorage.setItem("localTask", JSON.stringify(obj));
     save.style.display= "none";
     addTask.style.display= "block";
-    showTask();
 })
 
 function remove(index){
     var webtask = localStorage.getItem("localTask");
     var obj = JSON.parse(webtask);
-    alert(obj[index]);
     obj.splice(index, 1);
     localStorage.setItem("localTask", JSON.stringify(obj)); 
     showTask();
 }
-
-

@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="jquery_ui/jquery-ui.theme.css">
         <link rel="stylesheet" href="jquery_ui/jquery-ui.structure.css">
     </head>
-    <body background="2.jpeg" style="width: 100%; height: 100%;">
+    <body background="blue_bg.jpeg" style="width: 100%; height: 100%;">
         <h1 class="table-header">To do list</h1>
         <div>
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -21,6 +21,7 @@
               <button id="add" class="btn btn-success" type="submit">Add</button>
               <button id="edit" class="btn btn-success" type="submit" style="display: none;">Update</button>
               <button id="clear" class="btn btn-success sc" type="submit" >Clear</button>
+              <button id="date" class="btn btn-warning sc" style="margin-left: 185px;"></button>
             </form>
           </nav>
         </div>
@@ -42,14 +43,14 @@
     <script  src="jquery_ui/jquery-ui.js" type="text/javascipt"></script>
     
     <script  src="js/todolist.js" ></script>
-    <!-- <script>
-        $("#dd").datepicker();
-    </script> -->
-    
-        
-    
+    <script>
+        var today = new Date();
+        var months = ["January", "February", "March", "April", "May",
+         "June", "July", "August", "September", "October", "November", "December"];
+        var date = (months[today.getMonth()+1])+' '+today.getDate() +', '+today.getFullYear();
+        document.getElementById("date").innerText = date;
 
-    
-    
-    
+        
+    </script>
+       
 </html>
